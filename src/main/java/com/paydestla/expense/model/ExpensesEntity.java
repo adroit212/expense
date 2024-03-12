@@ -3,9 +3,8 @@ package com.paydestla.expense.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "EXPENSES")
@@ -13,12 +12,11 @@ import java.time.LocalDateTime;
 @Data
 public class ExpensesEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID",nullable = false, insertable = false, updatable = false)
-    @GenericGenerator(name = "native")
     private Long id;
     @Column(name = "EXPENSE_DATE")
-    private LocalDateTime expenseDate;
+    private LocalDate expenseDate;
     @Column(name = "EXPENSE_VALUE")
     private Double expenseValue;
     @Column(name = "VAT")
